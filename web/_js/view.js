@@ -202,7 +202,7 @@ function initView(){
 
 	
 
-	var args = window.location.search;
+	var args = window.location.hash;
 	if(args){
 		id = args.split("id=")[1];
 		if(id){
@@ -282,13 +282,14 @@ function initView(){
 		}
 	}
 
+	window.addEventListener("hashchange", highlightEntryFromUrl);
 	function highlightEntryFromUrl(){
 
 		var objectsContainer = document.getElementById("objectsList");
 
 		var id = 0;
 		
-		var args = window.location.search;
+		var args = window.location.hash;
 		if(args){
 			id = args.split("id=")[1];
 			if(id){
